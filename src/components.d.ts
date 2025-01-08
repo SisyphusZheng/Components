@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IconSet } from "./components/icon/icon";
+export { IconSet } from "./components/icon/icon";
 export namespace Components {
     interface AirAvatar {
         "bgColor": string;
@@ -46,31 +48,6 @@ export namespace Components {
         "title": string;
     }
     /**
-     * @name AirIcon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions.
-     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <air-icon name="home" size="2rem" />
-     */
-    interface AirIcon {
-        /**
-          * Custom CSS class to apply to the icon.
-         */
-        "customClass": string;
-        /**
-          * Custom CSS style to apply to the icon.
-         */
-        "customStyle": { [key: string]: string } | string;
-        /**
-          * The identifier for the icon. This name corresponds to a specific SVG asset in the icon set.
-         */
-        "name": string;
-        /**
-          * The size of the icon. This can be specified in pixels (px) or rem units to control the icon's dimensions. If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.
-         */
-        "size": string;
-    }
-    /**
      * @name AirText
      * @description Typography for rendering headlines, paragraphs, captions, and body text with various style options.
      * @category General
@@ -100,6 +77,12 @@ export namespace Components {
       | 'body-emphasis'
       | 'fluid-heading';
     }
+    interface GoIcon {
+        "color": string;
+        "iconSet": IconSet;
+        "name": string;
+        "size": string;
+    }
 }
 export interface AirButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -108,10 +91,6 @@ export interface AirButtonCustomEvent<T> extends CustomEvent<T> {
 export interface AirCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAirCardElement;
-}
-export interface AirIconCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLAirIconElement;
 }
 declare global {
     interface HTMLAirAvatarElement extends Components.AirAvatar, HTMLStencilElement {
@@ -160,30 +139,6 @@ declare global {
         prototype: HTMLAirCardElement;
         new (): HTMLAirCardElement;
     };
-    interface HTMLAirIconElementEventMap {
-        "iconClicked": any;
-    }
-    /**
-     * @name AirIcon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions.
-     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <air-icon name="home" size="2rem" />
-     */
-    interface HTMLAirIconElement extends Components.AirIcon, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAirIconElementEventMap>(type: K, listener: (this: HTMLAirIconElement, ev: AirIconCustomEvent<HTMLAirIconElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAirIconElementEventMap>(type: K, listener: (this: HTMLAirIconElement, ev: AirIconCustomEvent<HTMLAirIconElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLAirIconElement: {
-        prototype: HTMLAirIconElement;
-        new (): HTMLAirIconElement;
-    };
     /**
      * @name AirText
      * @description Typography for rendering headlines, paragraphs, captions, and body text with various style options.
@@ -196,13 +151,19 @@ declare global {
         prototype: HTMLAirTextElement;
         new (): HTMLAirTextElement;
     };
+    interface HTMLGoIconElement extends Components.GoIcon, HTMLStencilElement {
+    }
+    var HTMLGoIconElement: {
+        prototype: HTMLGoIconElement;
+        new (): HTMLGoIconElement;
+    };
     interface HTMLElementTagNameMap {
         "air-avatar": HTMLAirAvatarElement;
         "air-button": HTMLAirButtonElement;
         "air-button-group": HTMLAirButtonGroupElement;
         "air-card": HTMLAirCardElement;
-        "air-icon": HTMLAirIconElement;
         "air-text": HTMLAirTextElement;
+        "go-icon": HTMLGoIconElement;
     }
 }
 declare namespace LocalJSX {
@@ -248,35 +209,6 @@ declare namespace LocalJSX {
         "title"?: string;
     }
     /**
-     * @name AirIcon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions.
-     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <air-icon name="home" size="2rem" />
-     */
-    interface AirIcon {
-        /**
-          * Custom CSS class to apply to the icon.
-         */
-        "customClass"?: string;
-        /**
-          * Custom CSS style to apply to the icon.
-         */
-        "customStyle"?: { [key: string]: string } | string;
-        /**
-          * The identifier for the icon. This name corresponds to a specific SVG asset in the icon set.
-         */
-        "name"?: string;
-        /**
-          * The event fired when the icon is clicked.
-         */
-        "onIconClicked"?: (event: AirIconCustomEvent<any>) => void;
-        /**
-          * The size of the icon. This can be specified in pixels (px) or rem units to control the icon's dimensions. If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.
-         */
-        "size"?: string;
-    }
-    /**
      * @name AirText
      * @description Typography for rendering headlines, paragraphs, captions, and body text with various style options.
      * @category General
@@ -306,13 +238,19 @@ declare namespace LocalJSX {
       | 'body-emphasis'
       | 'fluid-heading';
     }
+    interface GoIcon {
+        "color"?: string;
+        "iconSet"?: IconSet;
+        "name"?: string;
+        "size"?: string;
+    }
     interface IntrinsicElements {
         "air-avatar": AirAvatar;
         "air-button": AirButton;
         "air-button-group": AirButtonGroup;
         "air-card": AirCard;
-        "air-icon": AirIcon;
         "air-text": AirText;
+        "go-icon": GoIcon;
     }
 }
 export { LocalJSX as JSX };
@@ -324,20 +262,13 @@ declare module "@stencil/core" {
             "air-button-group": LocalJSX.AirButtonGroup & JSXBase.HTMLAttributes<HTMLAirButtonGroupElement>;
             "air-card": LocalJSX.AirCard & JSXBase.HTMLAttributes<HTMLAirCardElement>;
             /**
-             * @name AirIcon
-             * @description Icons are visual symbols used to represent ideas, objects, or actions.
-             * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-             * @category General
-             * @example <air-icon name="home" size="2rem" />
-             */
-            "air-icon": LocalJSX.AirIcon & JSXBase.HTMLAttributes<HTMLAirIconElement>;
-            /**
              * @name AirText
              * @description Typography for rendering headlines, paragraphs, captions, and body text with various style options.
              * @category General
              * @example <air-text type="heading" level="1">Heading</air-text>
              */
             "air-text": LocalJSX.AirText & JSXBase.HTMLAttributes<HTMLAirTextElement>;
+            "go-icon": LocalJSX.GoIcon & JSXBase.HTMLAttributes<HTMLGoIconElement>;
         }
     }
 }

@@ -22,83 +22,71 @@
       rel="stylesheet"
       href="https://unpkg.com/tailwindcss@3.0.7/lib/css/preflight.css"
     />
+    <!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Font Awesome -->
+ <!-- Include Material Icons -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+ <!-- Include Font Awesome -->
+ <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+   integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+   crossorigin="anonymous"
+   referrerpolicy="no-referrer"
+ />
+
+ <!-- Include Boxicons -->
+ <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+<!-- Include Iconfont (阿里巴巴图标库) -->
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_2480194_2mrtx2ol85n.css">
+
+<!-- Include IconPark (腾讯图标库) -->
+<link rel="stylesheet" href="https://unpkg.com/@icon-park/react@1.0.5/style.css">
+
     <script type="module" src="./build/aircomponents.esm.js"></script>
     <script nomodule src="./build/aircomponents.js"></script>
+
   </head>
   <body>
+    <div class="container">
+      <h3>
+        <go-link href="https://fonts.google.com/icons">Material Icons</go-link>
+      </h3>
+      <div>
+        <go-icon icon-set="material-icons" name="favorite" size="3rem" color="red"></go-icon>
+        <go-icon icon-set="material-icons" name="home" label="Home"></go-icon>
+      </div>
 
-    <air-card imageUrl="https://via.placeholder.com/150" isHighlighted="true">
-      <!-- 自定义标题 -->
-      <span slot="title">Custom Card Title</span>
-      
-      <!-- 自定义内容 -->
-      <span slot="content">This is custom content for the card. You can replace it with any custom HTML.</span>
-      
-      <!-- 自定义底部 -->
-      <div slot="footer">
-        <air-button
-        slot="footer"
-          id="myButton"
-          size="small"
-          variant="solid"
-          color="primary"
-          loading="false"
-          disabled="false"
-        >
-          Click Me
-        </air-button>
+      <h3>
+        <go-link href="https://fontawesome.com/">Font Awesome</go-link>
+      </h3>
+      <div>
+        <go-icon icon-set="fas" name="heart" size="3rem" color="blue"></go-icon>
+        <go-icon icon-set="fas" name="home" label="Home"></go-icon>
       </div>
-    </air-card>
-    
-    <air-card isHighlighted="false">
-      <!-- 使用默认的插槽内容 -->
-      <span slot="title">Another Card Title</span>
-      <span slot="content">Here is another custom content for a different card.</span>
-      
-      <!-- 无底部插槽，使用默认内容 -->
-    </air-card>
-    
-    <air-card isHighlighted="true">
-      <span slot="title">
-        <air-text type="heading" level="1" color="primary">Card Title</air-text>
-      </span>
-      <span slot="content">
-        <air-text type="body" color="secondary">This is a description of the card content. It can be anything, such as a brief introduction or message.</air-text>
-      </span>
-      <div slot="footer">
-        <air-button size="small" variant="solid" color="primary">Learn More</air-button>
+
+      <h3>
+        <go-link href="https://boxicons.com/">Boxicons</go-link>
+      </h3>
+      <div>
+        <go-icon icon-set="bxs" name="heart" size="3rem" color="green"></go-icon>
+        <go-icon icon-set="bx" name="home" label="Home"></go-icon>
       </div>
-    </air-card>
-    
-    <air-card isHighlighted="false" imageUrl="https://via.placeholder.com/150">
-      <span slot="title">
-        <air-text type="heading" level="2" color="primary">Featured Card</air-text>
-      </span>
-      <span slot="content">
-        <air-text type="body" color="tertiary">This card includes an image and some descriptive content. Click on it for more information.</air-text>
-      </span>
-      <div slot="footer">
-        <air-button size="medium" variant="outline" color="primary">Learn More</air-button>
+      <h3>Iconfont (阿里巴巴)</h3>
+      <div>
+        <go-icon icon-set="iconfont" name="home" size="3rem" color="pink"></go-icon>
+        <go-icon icon-set="iconfont" name="home" size="3rem" color="brown"></go-icon>
       </div>
-    </air-card>
-    
-    <air-card isHighlighted="false" size="large">
-      <span slot="content">
-        <air-text type="fluid-heading" color="primary">Responsive Card Title</air-text>
-      </span>
-    </air-card>
-    
-    <air-card isHighlighted="false" size="small">
-      <span slot="title">
-        <air-text type="heading" level="3" color="primary">Terms and Conditions</air-text>
-      </span>
-      <span slot="content">
-        <air-text type="legal" color="tertiary">Please read these terms and conditions carefully before using our service.</air-text>
-      </span>
-      <div slot="footer">
-        <air-button size="small" variant="outline" color="secondary">I Agree</air-button>
+
+      <h3>IconPark (腾讯)</h3>
+      <div>
+        <go-icon icon-set="iconpark" name="home" size="5rem" color="blue"></go-icon>
+        <go-icon icon-set="iconpark" name="home" size="3rem" color="orange"></go-icon>
       </div>
-    </air-card>
-    
+    </div>
   </body>
 </html>
